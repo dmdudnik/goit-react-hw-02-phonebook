@@ -1,11 +1,13 @@
 import { Component } from 'react';
 import styles from '../Form/Form.module.css';
+import shortid from 'shortid';
 
 class Form extends Component {
   state = {
     name: '',
     number: ''
   }
+  loginInputId = shortid.generate();
     
   handleChange = event => {
     const { name, value } = event.currentTarget;
@@ -17,18 +19,28 @@ class Form extends Component {
   handleSubmit = event => {
   event.preventDefault();
     this.props.onSubmit(this.state);
+    this.reset();
+
   }
-    
+  
+  reset = () => {
+    this.setState({
+      name: '',
+      number: ''
+    });
+  }
   render() {
     return (
       <form
-        className={ styles.form}
-        onSubmit={this.handleSubmit}>
+        className={styles.form}
+        onSubmit={this.handleSubmit}
+      >
         <label>
           Name
           <input
             type="text"
             name="name"
+            id={this.loginInputId}
             value={this.state.name}
             onChange={this.handleChange}
           />
