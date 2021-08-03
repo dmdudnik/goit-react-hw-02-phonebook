@@ -21,11 +21,11 @@ class Form extends Component {
 
   render() {
     return (
-      <form className={styles.Form} onSubmit={this.handleSubmit}>
-        <label className={styles.FormLabel}>
+      <form className={styles.form} onSubmit={this.handleSubmit}>
+        <label className={styles.formlabel}>
           Name
           <input
-            className={styles.FormInput}
+            className={styles.forminput}
             type="text"
             name="name"
             value={this.state.name}
@@ -35,21 +35,21 @@ class Form extends Component {
             required
           />
         </label>
-        <label className={styles.FormLabel}>
+        <label className={styles.formlabel}>
           Number
           <input
-            className={styles.FormInput}
+            className={styles.forminput}
             type="text"
             name="number"
             value={this.state.number}
-            onChange={this.handleInputChenge}
+            onChange={this.handleInputChange}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
             required
           />
         </label>
 
-        <button className={styles.FormBtn} type="submit">
+        <button className={styles.formbtn} type="submit">
           {' '}
           Add Contact{' '}
         </button>

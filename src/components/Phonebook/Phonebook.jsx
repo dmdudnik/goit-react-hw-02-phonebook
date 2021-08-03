@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import ContactList from '../ContactList/ContactList';
 import Form from '../Form/Form';
 import Filter from '../Filter/Filter';
+import styles from '../Phonebook/Phonebook.module.css';
 
 class Phonebook extends Component {
   state = {
@@ -51,8 +52,8 @@ class Phonebook extends Component {
     const { filter } = this.state;
 
     return (
-      <div>
-        <h1>Phonebook</h1>
+        <div className={ styles.phonebook}>
+            <h1>Phonebook</h1>
         <Form addContact={this.addContact} />
         <h2>Contacts</h2>
         <Filter value={filter} onFilterChange={this.onFilterChange} />
