@@ -1,11 +1,13 @@
+import styles from '../Filter/Filter.module.css'
+
 const Filter = ({ filter, onFilterChange }) => {
   const onChange = e => {
     onFilterChange(e.target.value);
   };
   return (
-    <label>
+    <label className={styles.find_label}>
       Find contacts by name
-      <input type="text" value={filter} onChange={onChange} name="filter" />
+      <input className={styles.find_input} type="text" value={filter} onChange={onChange} name="filter" />
     </label>
   );
 };
