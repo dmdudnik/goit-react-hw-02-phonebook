@@ -1,62 +1,61 @@
 import { Component } from 'react';
 import styles from '../Form/Form.module.css';
-import shortid from 'shortid';
 
 class Form extends Component {
   state = {
     name: '',
-    number: ''
-  }
-  loginInputId = shortid.generate();
-    
-  handleChange = event => {
-    const { name, value } = event.currentTarget;
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  handleSubmit = event => {
-  event.preventDefault();
-    this.props.onSubmit(this.state);
+    number: '',
+  };
+  handleInputChange = e => {
+    const { name, value } = e.currentTarget;
+    this.setState({ [name]: value });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.addContact({ ...this.state });
     this.reset();
-
-  }
-  
+  };
   reset = () => {
-    this.setState({
-      name: '',
-      number: ''
-    });
-  }
+    this.setState({ name: '', number: '' });
+  };
+
   render() {
     return (
-      <form
-        className={styles.form}
-        onSubmit={this.handleSubmit}
-      >
-        <label>
+      <form className={styles.Form} onSubmit={this.handleSubmit}>
+        <label className={styles.FormLabel}>
           Name
           <input
+            className={styles.FormInput}
             type="text"
             name="name"
-            id={this.loginInputId}
             value={this.state.name}
-            onChange={this.handleChange}
+            onChange={this.handleInputChange}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+            required
           />
         </label>
-        <label>
+        <label className={styles.FormLabel}>
           Number
           <input
+            className={styles.FormInput}
             type="text"
             name="number"
             value={this.state.number}
-            onChange={this.handleChange}          
+            onChange={this.handleInputChenge}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+            required
           />
         </label>
-        <button type="submit">Add contact</button>
-      </form>   
-    )
+
+        <button className={styles.FormBtn} type="submit">
+          {' '}
+          Add Contact{' '}
+        </button>
+      </form>
+    );
   }
 }
+
 export default Form;

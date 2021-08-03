@@ -1,18 +1,8 @@
-import './App.css';
-import { Component } from 'react';
-import Form from './components/Form/Form';
+import React from 'react';
+import Phonebook from './components/Phonebook/Phonebook';
 
-class App extends Component {
-  formSubmitHandler = data => {
-    console.log(data);
-  };
+const App = () => {
+  return <Phonebook />;
+};
 
-  render() {
-    return (
-      <div>
-        <Form onSubmit={this.formSubmitHandler} />
-      </div>
-    );
-  }
-}
 export default App;
