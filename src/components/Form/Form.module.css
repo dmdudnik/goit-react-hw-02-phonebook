@@ -8,26 +8,26 @@
   padding-bottom: 10px;
 }
 
-.formlabel {
+.form_label {
   display: block;
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-.forminput {
+.form_input {
   display: block;
   margin-top: 3px;
   font-size: 15px;
 }
 
-.formbtn {
+.form_btn {
   display: block;
   width: 100px;
   height: 30px;
   font-size: 15px;
 }
 
-.formbtn:hover {
+.form_btn:hover {
   background-color: blueviolet;
   color: white;
 }

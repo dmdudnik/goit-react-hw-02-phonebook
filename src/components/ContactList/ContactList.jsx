@@ -1,7 +1,7 @@
 import styles from '../ContactList/ContactList.module.css';
 
 const ContactList = ({ contact, onDeleteContact }) => (
-  <ul className={styles.ContactList}>
+  <ul className={styles.contactlist}>
     {contact.map(({ id, name, number }) => (
       <li className={styles.ContactListItem} key={id}>
         <span>{name} :</span>

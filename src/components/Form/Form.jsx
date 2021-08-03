@@ -22,10 +22,10 @@ class Form extends Component {
   render() {
     return (
       <form className={styles.form} onSubmit={this.handleSubmit}>
-        <label className={styles.formlabel}>
+        <label className={styles.form_label}>
           Name
           <input
-            className={styles.forminput}
+            className={styles.form_input}
             type="text"
             name="name"
             value={this.state.name}
@@ -35,10 +35,10 @@ class Form extends Component {
             required
           />
         </label>
-        <label className={styles.formlabel}>
+        <label className={styles.form_label}>
           Number
           <input
-            className={styles.forminput}
+            className={styles.form_input}
             type="text"
             name="number"
             value={this.state.number}
@@ -49,7 +49,7 @@ class Form extends Component {
           />
         </label>
 
-        <button className={styles.formbtn} type="submit">
+        <button className={styles.form_btn} type="submit">
           {' '}
           Add Contact{' '}
         </button>
